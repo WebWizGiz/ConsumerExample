@@ -18,9 +18,17 @@ public class ConsumerExample {
             o.applyDiscount(d);
             System.out.println("Discount of $" + d + " applied. New total: $" + String.format("%.2f", o.getTotalPrice()));
         };
+        //define apply coupon
+        BiConsumer<Order, Coupon> applyCoupon = (o, c) -> {
+            o.applyCoupon(c);
+        };
 
         CheckoutService checkoutService = new CheckoutService(processOrder, applyDiscount);
         System.out.println("Welcome to the Java Bookstore!");
+
+        //create a coupon
+        Coupon coupon = new Coupon("122", 10);
+        checkoutService.checkout(order, coupon);
 
         String action;
         do {
@@ -40,7 +48,7 @@ public class ConsumerExample {
                 case "checkout":
                     System.out.println("Enter any discount amount, if applicable: ");
                     double discount = Double.parseDouble(input.nextLine());
-                    checkoutService.checkout(order, discount);
+                    checkoutService.checkout(order, coupon);
                     order = new Order(); // reset the order for next customer
                     break;
 
