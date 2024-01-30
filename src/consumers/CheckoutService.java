@@ -13,10 +13,11 @@ public class CheckoutService {   //means I want to pay now!
         this.applyDiscount = applyDiscount;
     }
 
-    //method no returns value
-    public void checkout(Order o, Double discount){
-        if (discount > 0){
-            applyDiscount.accept(o, discount);
+    //method - no returns value
+    public void checkout(Order o, Double discount) {
+        if (discount > 0) {
+            //applyDiscount.accept(o, discount);
+            o.applyDiscount(discount);
         }
 
         processOrder.accept(o);

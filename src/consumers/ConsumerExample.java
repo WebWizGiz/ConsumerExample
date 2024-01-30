@@ -26,7 +26,7 @@ public class ConsumerExample {
         do {
             System.out.println("Choose an action: [add] item, [checkout], or [quit]");
             action = input.nextLine();
-            switch (action) {
+            switch (action.toLowerCase()) {
                 case "add":
                     System.out.println("Enter the name of the book: ");
                     String item = input.nextLine();
