@@ -23,12 +23,12 @@ public class ConsumerExample {
             o.applyCoupon(c);
         };
 
-        CheckoutService checkoutService = new CheckoutService(processOrder, applyDiscount);
+        //CheckoutService checkoutService = new CheckoutService(processOrder, applyDiscount);
         System.out.println("Welcome to the Java Bookstore!");
 
         //create a coupon
         Coupon coupon = new Coupon("122", 10);
-        checkoutService.checkout(order, coupon);
+        //checkoutService.checkout(order, coupon);
 
         String action;
         do {
@@ -48,7 +48,7 @@ public class ConsumerExample {
                 case "checkout":
                     System.out.println("Enter any discount amount, if applicable: ");
                     double discount = Double.parseDouble(input.nextLine());
-                    checkoutService.checkout(order, coupon);
+                    //checkoutService.checkout(order, coupon);
                     order = new Order(); // reset the order for next customer
                     break;
 
